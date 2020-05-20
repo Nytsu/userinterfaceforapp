@@ -1,0 +1,79 @@
+#:import hex kivy.utils.get_color_from_hex
+<LoginScreen>
+    email: email
+    password: password
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: (1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            color: 0, 0, 0, 1
+            text: "Sign In "
+            font_size: (root.width**2 +root.height**2) / 13**4
+            pos_hint: {"x":0.325, "top": 0.78}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id:email
+            hint_text: "Email"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.15, "top":0.65}
+            size_hint: 0.70, 0.06
+
+        TextInput:
+            id:password
+            hint_text: "Password"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.15, "top":0.55}
+            size_hint: 0.70, 0.06
+
+        Button:
+            pos_hint:{"x":0.15,"y":0.4}
+            size_hint: 0.70, 0.06
+            font_size: (root.width**2 + root.height**2) / 13**4
+
+            text: "Sign In"
+
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.transition.duration = 1
+                root.manager.current = 'home_screen'
+                root.loginButton()
+        Button:
+            background_color: 0,0,0,0
+
+            pos_hint:{"x":0.15,"y":0.35}
+            size_hint: 0.70, 0.06
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "Dont' have an Account? Create one!"
+            color: hex('#59C726')
+
+
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = 'create_account_screen'
+
+
+<SmoothButton@Button>
+    background_color:(0,0,0,0)
+    background_normal:''
+    back_color: (0,0,0,1)
+    border_radius: [18]
+    canvas.before:
+        Color:
+            rgba: self.back_color
+        RoundedRectangle:
+            size: self.size
+            pos:self.pos
+            radius:self.border_radius
+
+

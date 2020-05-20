@@ -1,0 +1,62 @@
+<CreateAccountScreen>
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: (1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            color: 0, 0, 0, 1
+            text: "Lets get you started! "
+            font_size: (root.width**2 +root.height**2) / 13**4
+            pos_hint: {"x":0.325, "top": 0.78}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+
+            hint_text: "Enter Email"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.15, "top":0.65}
+            size_hint: 0.70, 0.06
+            id:email
+
+        TextInput:
+            id:password
+            hint_text: "Enter Password"
+            font_size: (root.width**2 + root.height**2) / 13**4
+            multiline: False
+            pos_hint: {"x": 0.15, "top":0.55}
+            size_hint: 0.70, 0.06
+            id:password
+
+        Button:
+            pos_hint:{"x":0.15,"y":0.4}
+            size_hint: 0.70, 0.06
+            font_size: (root.width**2 + root.height**2) / 13**4
+
+            text: "Create account"
+
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.transition.duration = 1
+                root.manager.current = 'login_screen'
+
+        Button:
+            background_color: 0,0,0,0
+
+            pos_hint:{"x":0.15,"y":0.35}
+            size_hint: 0.70, 0.06
+            font_size: (root.width**2 + root.height**2) / 15**4
+            text: "You have an account? Lets log you in!"
+            color: hex('#59C726')
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.transition.duration = 1
+                root.manager.current = 'login_screen'
+
+
+

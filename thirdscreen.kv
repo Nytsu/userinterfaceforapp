@@ -1,0 +1,49 @@
+#:import MapView kivy.garden.mapview.MapView
+
+<ThirdScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: (1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    MapView:
+        lat: 18.2208
+        lon: -66.5901
+        zoom: 7
+        
+    ActionBar:
+        background_color: 3,3,3,1
+        pos_hint:{'top':1}
+        ActionView:
+            ActionPrevious:
+            ActionButton:
+                text: "Account"
+
+
+    BoxLayout:
+        orientation:"vertical"
+
+        BoxLayout:
+            size_hint: 1, None
+            height: '50dp'
+
+            Button:
+                text:"Feature Screen"
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.transition.duration = 1.0
+                    root.manager.current = 'second_screen'
+            Button:
+                text: "Home Screen"
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'home_screen'
+            Button:
+                text: "Map Screen"
+                on_release:
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'third_screen'

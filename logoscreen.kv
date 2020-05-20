@@ -1,0 +1,36 @@
+#: import hex kivy.utils.get_color_from_hex
+<LogoScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: hex('#59C726')
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            background_color: 0, 0, 0, 0
+
+            on_release:
+                root.manager.current = 'login_screen'
+
+        Image:
+            source:"ZuttoApp_Logo(trasp).png"
+            allow_stretch: True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         
+          

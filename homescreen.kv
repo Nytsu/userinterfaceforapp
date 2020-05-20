@@ -1,0 +1,94 @@
+<HomeScreen>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgb:(1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    ScrollView:
+        pos_hint:{'top':0.93}
+        StackLayout:
+            padding:5
+            spacing:2
+            size_hint: 1, None
+            height: self.minimum_height
+
+            Button:
+                background_normal:"oldsanjuan1.jpg"
+                size: 400, 200
+                size_hint: None, None
+
+
+            Button:
+                text: 'Negocio 1'
+                background_normal: "paletas.jpg"
+                size: 200, 200
+                size_hint: None, None
+
+            Button:
+                text: 'Negocio 2'
+                background_normal: "water_background.gif"
+                size: 200, 200
+                size_hint: None, None
+
+            Button:
+                text: 'Button 1'
+                size: 200, 200
+                size_hint: None, None
+
+            Button:
+                text: 'Button 1'
+                size: 200, 200
+                size_hint: None, None
+
+            Button:
+
+                background_normal: "garita.jpg"
+                size: 400, 200
+                size_hint: None, None
+
+
+
+    ActionBar:
+        background_color: 3,3,3,1
+        pos_hint:{'top':1}
+        ActionView:
+            ActionPrevious:
+            ActionButton:
+                text: "Account"
+
+    BoxLayout:
+        orientation:"vertical"
+
+        BoxLayout:
+            size_hint: 1, None
+            height: '50dp'
+
+            Button:
+                source:"home_icon.jpg"
+                text:"Feature Screen"
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.transition.duration = 1.0
+                    root.manager.current = 'second_screen'
+
+            Button:
+                text: "Home Screen"
+                on_release:
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'home_screen'
+            Button:
+                text: "Map Screen"
+                on_release:
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'third_screen'
+
+
+
+
+
+
+
